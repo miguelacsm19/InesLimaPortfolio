@@ -1,0 +1,434 @@
+
+@font-face {
+    font-family: 'Amsterdam';
+    src: url('fonts/AMSTERDAM\ SIGNATURE.OTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Dmsans';
+    src: url('fonts/DMSANS-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'Demo';
+    src: url('fonts/FONTSPRING-DEMO-RODER_FONTLOT143F.OTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* CORES E CONFIGURAÇÕES */
+:root {
+    --fundo: #ffffff;
+    --texto: #d2e3fb;
+    --castanho: #514a35;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--castanho);
+    color: var(--fundo);
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* MENU */
+.navbar {
+    padding: 25px 6%;
+    border-bottom: 1px solid var(--castanho);
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.navbar a {
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #8a9fbd;
+}
+
+
+/* =========================
+   APRESENTAÇÃO / HERO
+========================= */
+
+
+.hero {
+    background-color: #fef7ed;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 3%;
+}
+
+.hero-conteudo {
+    position: relative;
+    width: 100%;
+    transform: translateY(-45px);
+}
+
+
+
+/* PORTFÓLIO GIGANTE */
+.hero-titulo {
+    font-family: 'Demo', cursive;
+    font-size: clamp(85px, 18vw, 300px);
+    font-weight: 900;
+    letter-spacing: -0.5;
+    line-height: 0.85;
+    color: #d2e3fb;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* ASSINATURA SOBREPOSTA */
+.hero-assinatura {
+    position: absolute;
+    top: 5%;
+    left: 40%;
+    transform: rotate(-8deg);
+
+    font-family: 'Amsterdam', cursive;
+    font-size: clamp(200px, 7vw, 110px);
+    font-weight: 20;
+    color: #514a35;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 350px;
+        padding: 50px 4%;
+    }
+
+    .hero-pequeno {
+        letter-spacing: -2px;
+    }
+
+    .hero-titulo {
+        font-size: 17vw;
+    }
+
+    .hero-assinatura {
+        font-size: 9vw;
+        left: 35%;
+        top: 65%;
+    }
+}
+
+
+
+/* =========================
+   SOBRE MIM
+========================= */
+
+.sobre {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 12%;
+    padding: 70px 3% 100px;
+    background-color: #ffffff;
+    color: #514a35;
+    align-items: start;
+}
+
+/* LADO ESQUERDO */
+
+.sobre-esquerda {
+    display: flex;
+    flex-direction: column;
+}
+
+.frase-principal {
+    font-family: Arial, sans-serif;
+    font-size: clamp(30px, 3vw, 45px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    max-width: 650px;
+    margin-bottom: 140px;
+}
+
+/* FOTO + TEXTO */
+
+.apresentacao {
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.apresentacao img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.texto-apresentacao {
+    font-size: 16px;
+    line-height: 1.12;
+}
+
+.texto-apresentacao p {
+    margin-bottom: 18px;
+}
+
+/* CONTACTO */
+
+.contacto-sobre {
+    margin-top: 40px;
+}
+
+.contacto-sobre h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.contacto-sobre a {
+    font-size: 16px;
+}
+
+/* LADO DIREITO */
+
+.sobre-direita {
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+}
+
+.educacao h3,
+.experiencia h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 35px;
+}
+
+/* ENTRADAS DE EDUCAÇÃO E EXPERIÊNCIA */
+
+.entrada {
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.data {
+    font-size: 13px;
+    line-height: 1.15;
+}
+
+.detalhes {
+    font-size: 16px;
+    line-height: 1.15;
+}
+
+.detalhes strong {
+    font-weight: 700;
+}
+
+.detalhes p {
+    margin: 0;
+}
+
+/* FRASE FINAL */
+
+.frase-final {
+    font-size: clamp(28px, 3vw, 45px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-top: 30px;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+    .sobre {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 50px 6%;
+    }
+
+    .frase-principal {
+        margin-bottom: 55px;
+    }
+
+    .sobre-direita {
+        gap: 45px;
+    }
+}
+
+@media (max-width: 550px) {
+    .apresentacao {
+        grid-template-columns: 1fr;
+    }
+
+    .apresentacao img {
+        max-width: 350px;
+    }
+
+    .entrada {
+        grid-template-columns: 85px 1fr;
+        gap: 15px;
+    }
+}
+
+
+
+/* FERRAMENTAS */
+.ferramentas {
+    background-color: #d2e3fb;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    padding: 45px 6%;
+    border: none;
+}
+
+.ferramentas img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.ferramentas img:hover {
+    transform: scale(1.15);
+}
+
+
+/* PROJETOS */
+.projetos {
+    padding: 80px 6%;
+}
+
+.projetos > h2 {
+    font-size: 65px;
+    font-weight: 400;
+    margin-bottom: 45px;
+}
+
+.projeto {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 25px 10px;
+    border-top: 1px solid var(--castanho);
+    transition: padding 0.3s, color 0.3s;
+}
+
+.projeto:last-child {
+    border-bottom: 1px solid var(--castanho);
+}
+
+.projeto h3 {
+    font-size: clamp(20px, 3vw, 36px);
+    font-weight: 400;
+}
+
+.projeto > span:first-child {
+    font-size: 20px;
+}
+
+.seta {
+    margin-left: auto;
+    font-size: 35px;
+}
+
+.projeto:hover {
+    padding-left: 25px;
+    color: #8a9fbd;
+}
+
+/* CONTACTOS */
+.contactos {
+    padding: 80px 6%;
+    background-color: var(--castanho);
+    color: var(--fundo);
+}
+
+.contactos h2 {
+    font-size: 55px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.contactos p {
+    margin-bottom: 20px;
+}
+
+.contactos a {
+    text-decoration: underline;
+}
+
+/* TELEMÓVEIS */
+@media (max-width: 768px) {
+    .navbar nav {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .hero {
+        min-height: 270px;
+    }
+
+    .hero h2 {
+        margin-left: 12%;
+    }
+
+    .sobre {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .ferramentas {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .ferramenta {
+        flex: 0 1 25%;
+    }
+
+    .projetos > h2 {
+        font-size: 45px;
+    }
+
+    .projeto {
+        gap: 15px;
+    }
+}
