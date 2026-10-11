@@ -1,29 +1,27 @@
-
+/* FONTES PERSONALIZADAS */
 @font-face {
     font-family: 'Amsterdam';
-    src: url('fonts/AMSTERDAM\ SIGNATURE.OTF') format('truetype');
-    font-weight: normal;
+    src: url('fonts/AMSTERDAM%20SIGNATURE.OTF') format('opentype');
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
-
 
 @font-face {
     font-family: 'Dmsans';
     src: url('fonts/DMSANS-REGULAR.TTF') format('truetype');
-    font-weight: normal;
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
-
-
 
 @font-face {
     font-family: 'Demo';
-    src: url('fonts/FONTSPRING-DEMO-RODER_FONTLOT143F.OTF') format('truetype');
-    font-weight: normal;
+    src: url('fonts/FONTSPRING-DEMO-RODER_FONTLOT143F.OTF') format('opentype');
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
-
-
 
 /* CORES E CONFIGURAÇÕES */
 :root {
@@ -32,10 +30,13 @@
     --castanho: #514a35;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -45,13 +46,12 @@ html {
 body {
     background-color: var(--castanho);
     color: var(--fundo);
-    font-family: Arial, sans-serif;
+    font-family: 'Dmsans', Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+img { max-width: 100%; }
+a { text-decoration: none; color: inherit; }
 
 /* MENU */
 .navbar {
@@ -62,6 +62,7 @@ a {
 .navbar nav {
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -70,42 +71,45 @@ a {
     transition: color 0.3s;
 }
 
-.navbar a:hover {
-    color: #8a9fbd;
-}
+.navbar a:hover { color: #8a9fbd; }
 
-
-/* =========================
-   APRESENTAÇÃO / HERO
-========================= */
-
-
+/* APRESENTAÇÃO / HERO */
 .hero {
     background-color: #fef7ed;
-    height: 550px;
+    min-height: clamp(300px, 39vw, 550px);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 0 3%;
+    padding: 45px 3%;
 }
 
 .hero-conteudo {
     position: relative;
     width: 100%;
-    transform: translateY(-45px);
+    max-width: 1600px;
+    margin: 0 auto;
+    transform: translateY(-20px);
+    container-type: inline-size;
 }
 
+.hero-pequeno {
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: clamp(24px, 5vw, 75px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--texto);
+    margin: 0;
+}
 
-
-/* PORTFÓLIO GIGANTE */
+/* TÍTULO PORTFÓLIO */
 .hero-titulo {
-    font-family: 'Demo', cursive;
-    font-size: clamp(85px, 18vw, 300px);
-    font-weight: 900;
-    letter-spacing: -0.5;
-    line-height: 0.85;
-    color: #d2e3fb;
+    font-family: 'Demo', sans-serif;
+    font-size: clamp(35px, 15cqw, 240px);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--texto);
     margin: 0;
     white-space: nowrap;
 }
@@ -113,61 +117,33 @@ a {
 /* ASSINATURA SOBREPOSTA */
 .hero-assinatura {
     position: absolute;
-    top: 5%;
-    left: 40%;
+    top: 40%;
+    left: 30%;
     transform: rotate(-8deg);
-
     font-family: 'Amsterdam', cursive;
-    font-size: clamp(200px, 7vw, 110px);
+    font-size: clamp(200px, 7cqw, 110px);
     font-weight: 20;
-    color: #514a35;
+    line-height: 1;
+    color: var(--castanho);
     white-space: nowrap;
     z-index: 2;
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    .hero {
-        min-height: 350px;
-        padding: 50px 4%;
-    }
-
-    .hero-pequeno {
-        letter-spacing: -2px;
-    }
-
-    .hero-titulo {
-        font-size: 17vw;
-    }
-
-    .hero-assinatura {
-        font-size: 9vw;
-        left: 35%;
-        top: 65%;
-    }
-}
-
-
-
-/* =========================
-   SOBRE MIM
-========================= */
-
+/* SOBRE MIM */
 .sobre {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 12%;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 8%;
     padding: 70px 3% 100px;
     background-color: #ffffff;
-    color: #514a35;
+    color: var(--castanho);
     align-items: start;
 }
-
-/* LADO ESQUERDO */
 
 .sobre-esquerda {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .frase-principal {
@@ -177,15 +153,14 @@ a {
     line-height: 1.05;
     letter-spacing: -1.5px;
     max-width: 650px;
-    margin-bottom: 140px;
+    margin-bottom: clamp(45px, 8vw, 140px);
 }
 
 /* FOTO + TEXTO */
-
 .apresentacao {
     display: grid;
-    grid-template-columns: 45% 1fr;
-    gap: 35px;
+    grid-template-columns: minmax(0, 45%) minmax(0, 1fr);
+    gap: clamp(15px, 2.5vw, 35px);
     align-items: start;
 }
 
@@ -197,73 +172,51 @@ a {
 }
 
 .texto-apresentacao {
+    min-width: 0;
     font-size: 16px;
-    line-height: 1.12;
+    line-height: 1.35;
+    overflow-wrap: break-word;
 }
 
-.texto-apresentacao p {
-    margin-bottom: 18px;
-}
+.texto-apresentacao p { margin-bottom: 18px; }
 
-/* CONTACTO */
-
-.contacto-sobre {
-    margin-top: 40px;
-}
-
+/* CONTACTO SOBRE MIM */
+.contacto-sobre { margin-top: 40px; }
 .contacto-sobre h3 {
     font-size: 17px;
     font-weight: 800;
     margin-bottom: 20px;
 }
-
 .contacto-sobre a {
     font-size: 16px;
+    overflow-wrap: anywhere;
 }
 
-/* LADO DIREITO */
-
+/* EDUCAÇÃO E EXPERIÊNCIA */
 .sobre-direita {
     display: flex;
     flex-direction: column;
     gap: 65px;
+    min-width: 0;
 }
 
-.educacao h3,
-.experiencia h3 {
+.educacao h3, .experiencia h3 {
     font-size: 17px;
     font-weight: 800;
     margin-bottom: 35px;
 }
 
-/* ENTRADAS DE EDUCAÇÃO E EXPERIÊNCIA */
-
 .entrada {
     display: grid;
-    grid-template-columns: 95px 1fr;
+    grid-template-columns: 95px minmax(0, 1fr);
     gap: 20px;
     margin-bottom: 35px;
 }
 
-.data {
-    font-size: 13px;
-    line-height: 1.15;
-}
-
-.detalhes {
-    font-size: 16px;
-    line-height: 1.15;
-}
-
-.detalhes strong {
-    font-weight: 700;
-}
-
-.detalhes p {
-    margin: 0;
-}
-
-/* FRASE FINAL */
+.data { font-size: 13px; line-height: 1.3; }
+.detalhes { font-size: 16px; line-height: 1.3; }
+.detalhes strong { font-weight: 700; }
+.detalhes p { margin: 0; }
 
 .frase-final {
     font-size: clamp(28px, 3vw, 45px);
@@ -273,71 +226,31 @@ a {
     margin-top: 30px;
 }
 
-/* RESPONSIVO */
-
-@media (max-width: 900px) {
-    .sobre {
-        grid-template-columns: 1fr;
-        gap: 60px;
-        padding: 50px 6%;
-    }
-
-    .frase-principal {
-        margin-bottom: 55px;
-    }
-
-    .sobre-direita {
-        gap: 45px;
-    }
-}
-
-@media (max-width: 550px) {
-    .apresentacao {
-        grid-template-columns: 1fr;
-    }
-
-    .apresentacao img {
-        max-width: 350px;
-    }
-
-    .entrada {
-        grid-template-columns: 85px 1fr;
-        gap: 15px;
-    }
-}
-
-
-
-/* FERRAMENTAS */
+/* FERRAMENTAS: FUNDO AZUL SEM LINHAS */
 .ferramentas {
-    background-color: #d2e3fb;
+    background-color: var(--texto);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
     padding: 45px 6%;
     border: none;
 }
 
 .ferramentas img {
-    width: 65px;
-    height: 65px;
+    width: clamp(42px, 5vw, 65px);
+    height: clamp(42px, 5vw, 65px);
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.ferramentas img:hover {
-    transform: scale(1.15);
-}
-
+.ferramentas img:hover { transform: scale(1.15); }
 
 /* PROJETOS */
-.projetos {
-    padding: 80px 6%;
-}
-
+.projetos { padding: 80px 6%; }
 .projetos > h2 {
-    font-size: 65px;
+    font-size: clamp(40px, 5vw, 65px);
     font-weight: 400;
     margin-bottom: 45px;
 }
@@ -347,32 +260,19 @@ a {
     align-items: center;
     gap: 35px;
     padding: 25px 10px;
-    border-top: 1px solid var(--castanho);
+    border-top: 1px solid var(--fundo);
     transition: padding 0.3s, color 0.3s;
 }
 
-.projeto:last-child {
-    border-bottom: 1px solid var(--castanho);
-}
-
+.projeto:last-child { border-bottom: 1px solid var(--fundo); }
 .projeto h3 {
     font-size: clamp(20px, 3vw, 36px);
     font-weight: 400;
+    min-width: 0;
 }
-
-.projeto > span:first-child {
-    font-size: 20px;
-}
-
-.seta {
-    margin-left: auto;
-    font-size: 35px;
-}
-
-.projeto:hover {
-    padding-left: 25px;
-    color: #8a9fbd;
-}
+.projeto > span:first-child { font-size: 20px; }
+.seta { margin-left: auto; font-size: 35px; }
+.projeto:hover { padding-left: 25px; color: #8a9fbd; }
 
 /* CONTACTOS */
 .contactos {
@@ -380,55 +280,114 @@ a {
     background-color: var(--castanho);
     color: var(--fundo);
 }
-
 .contactos h2 {
-    font-size: 55px;
+    font-size: clamp(38px, 5vw, 55px);
     font-weight: 400;
     margin-bottom: 20px;
 }
+.contactos p { margin-bottom: 20px; }
+.contactos a { text-decoration: underline; }
 
-.contactos p {
-    margin-bottom: 20px;
+/* TABLETS / MACBOOKS COM JANELAS MAIS PEQUENAS */
+@media (max-width: 1100px) {
+    .sobre { gap: 5%; padding: 60px 4%; }
+    .apresentacao { grid-template-columns: 1fr; }
+    .apresentacao img { max-width: 350px; }
 }
 
-.contactos a {
-    text-decoration: underline;
+@media (max-width: 900px) {
+    .sobre {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding: 50px 6%;
+    }
+    .frase-principal { margin-bottom: 55px; }
+    .sobre-direita { gap: 45px; }
+    .apresentacao { grid-template-columns: minmax(0, 45%) minmax(0, 1fr); }
 }
 
 /* TELEMÓVEIS */
-@media (max-width: 768px) {
-    .navbar nav {
-        justify-content: center;
-        gap: 18px;
-    }
+@media (max-width: 600px) {
+    .navbar { padding: 20px 4%; }
+    .navbar nav { justify-content: center; gap: 18px; }
+    .navbar a { font-size: 14px; }
 
     .hero {
-        min-height: 270px;
+        min-height: 260px;
+        padding: 30px 4%;
+    }
+    .hero-conteudo { transform: translateY(-10px); }
+    .hero-pequeno { font-size: 6vw; }
+    .hero-titulo { font-size: 15cqw; }
+    .hero-assinatura {
+        font-size: 8cqw;
+        left: 37%;
+        top: 50%;
     }
 
-    .hero h2 {
-        margin-left: 12%;
-    }
+    .sobre { gap: 45px; padding: 50px 6%; }
+    .frase-principal { font-size: 30px; margin-bottom: 40px; }
+    .apresentacao { grid-template-columns: 1fr; gap: 25px; }
+    .apresentacao img { max-width: 350px; }
+    .entrada { grid-template-columns: 85px minmax(0, 1fr); gap: 15px; }
+    .frase-final { font-size: 30px; }
 
-    .sobre {
-        grid-template-columns: 1fr;
-        gap: 45px;
-    }
+    .ferramentas { gap: 22px; padding: 35px 5%; }
+    .ferramentas img { width: 45px; height: 45px; }
 
-    .ferramentas {
-        flex-wrap: wrap;
+    .projetos { padding: 60px 6%; }
+    .projetos > h2 { font-size: 45px; }
+    .projeto { gap: 15px; padding: 20px 5px; }
+    .projeto > span:first-child { font-size: 15px; }
+    .seta { font-size: 25px; }
+    .contactos { padding: 60px 6%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .projeto, .ferramentas img, .navbar a { transition: none; }
+}
+
+
+/* HERO - TELEMÓVEL */
+@media (max-width: 600px) {
+
+    .hero {
+        height: 330px;
+        min-height: 0;
+        padding: 30px 2%;
+        display: flex;
+        align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
 
-    .ferramenta {
-        flex: 0 1 25%;
+    .hero-conteudo {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
     }
 
-    .projetos > h2 {
-        font-size: 45px;
+    .hero-titulo {
+        font-family: 'Demo', sans-serif;
+        font-size: 18vw;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+        text-align: center;
+        margin: 0;
     }
 
-    .projeto {
-        gap: 15px;
+    .hero-assinatura {
+        position: absolute;
+        top: 55%;
+        left: 45%;
+        font-family: 'Amsterdam', cursive;
+        font-size: 12vw;
+        font-weight: normal;
+        transform: rotate(-8deg);
+        white-space: nowrap;
     }
 }
+
