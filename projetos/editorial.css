@@ -1,0 +1,290 @@
+@font-face {
+  font-family: 'Dmsans';
+  src: url('../fonts/DMSANS-REGULAR.TTF') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --castanho: #514a35;
+  --fundo: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--fundo); color: #111; font-family: 'Dmsans', Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+
+.navbar {
+  background: var(--castanho);
+  color: #fff;
+  padding: 18px 6%;
+}
+.navbar nav { display: flex; justify-content: flex-end; gap: 30px; flex-wrap: wrap; }
+.navbar a { font-size: 16px; transition: opacity .2s; }
+.navbar a:hover { opacity: .7; }
+
+.editorial { padding: 38px 3% 90px; }
+.editorial-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 195px;
+}
+.proximo-projeto {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 36px;
+  color: var(--castanho);
+  font-size: 22px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.proximo-projeto span { font-size: 34px; line-height: 1; transition: transform .25s; }
+.proximo-projeto:hover span { transform: translateX(7px); }
+.numero-projeto {
+  font-family: Arial, sans-serif;
+  font-size: clamp(90px, 13vw, 210px);
+  line-height: .9;
+  font-weight: 900;
+  letter-spacing: -.07em;
+  padding-right: .04em;
+}
+
+.editorial-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2.2vw, 36px);
+  align-items: start;
+}
+.editorial-item { margin: 0; min-width: 0; }
+.editorial-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.editorial-rodape { margin-top: clamp(50px, 7vw, 110px); }
+.editorial-rodape h1 { font-size: clamp(36px, 4vw, 58px); letter-spacing: -.045em; line-height: 1.1; margin: 0 0 18px; }
+.editorial-rodape p { max-width: 570px; margin: 0; color: #666; font-size: 16px; line-height: 1.55; }
+
+@media (max-width: 800px) {
+  .editorial { padding: 28px 4% 65px; }
+  .editorial-topo { min-height: 155px; }
+  .proximo-projeto { font-size: 18px; margin-top: 25px; gap: 10px; }
+  .proximo-projeto span { font-size: 27px; }
+  .numero-projeto { font-size: clamp(85px, 17vw, 140px); }
+  .editorial-galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+}
+@media (max-width: 520px) {
+  .navbar { padding: 18px 4%; }
+  .navbar nav { justify-content: center; gap: 20px; }
+  .navbar a { font-size: 14px; }
+  .editorial { padding: 25px 5% 55px; }
+  .editorial-topo { min-height: 125px; }
+  .numero-projeto { font-size: clamp(76px, 22vw, 110px); }
+  .proximo-projeto { font-size: 15px; margin-top: 22px; gap: 7px; }
+  .proximo-projeto span { font-size: 23px; }
+  .editorial-galeria { grid-template-columns: 1fr; gap: 24px; }
+  .editorial-item img { aspect-ratio: 3 / 4; }
+  .editorial-rodape { margin-top: 45px; }
+}
+
+
+/* =====================================
+   GALERIA EDITORIAL - CORRIGIDA
+===================================== */
+
+
+/* GALERIA EDITORIAL */
+
+.editorial-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    padding: 0 4%;
+    align-items: start;
+}
+
+.editorial-item {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}
+
+/* ÁREA DA IMAGEM */
+
+.editorial-imagem {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* IMAGEM E LEGENDA */
+
+.editorial-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    margin: 0;
+}
+
+.editorial-imagem {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    background: transparent;
+    overflow: visible;
+}
+
+.editorial-imagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: initial;
+}
+
+/* LEGENDA */
+
+.editorial-item figcaption {
+    width: 100%;
+    margin-top: 12px;
+    padding: 0;
+    text-align: left;
+
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: 14px;
+    color: #777777;
+}
+
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .editorial-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 20px;
+    }
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+    .editorial-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+        padding: 0 5%;
+    }
+
+    .editorial-item figcaption {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}
+
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+    .editorial-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+    .editorial-gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 5%;
+    }
+
+    .editorial-item img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* TOPO DA PÁGINA EDITORIAL */
+
+.editorial-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 45px 4% 35px;
+}
+
+/* NÚMERO 02 */
+
+.editorial-numero {
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: clamp(100px, 12vw, 200px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+    color: #000000;
+    margin: 0;
+}
+
+/* PRÓXIMO PROJETO */
+
+.editorial-topo .proximo-projeto {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 15px;
+
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #514a35;
+    text-decoration: none;
+}
+
+.editorial-topo .proximo-projeto span {
+    font-size: 32px;
+    transition: transform 0.3s ease;
+}
+
+.editorial-topo .proximo-projeto:hover span {
+    transform: translateX(6px);
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+    .editorial-topo {
+        padding: 30px 5% 25px;
+        align-items: flex-start;
+    }
+
+    .editorial-numero {
+        font-size: 90px;
+    }
+
+    .editorial-topo .proximo-projeto {
+        font-size: 15px;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .editorial-topo .proximo-projeto span {
+        font-size: 24px;
+    }
+}

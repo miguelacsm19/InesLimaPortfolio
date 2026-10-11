@@ -1,0 +1,236 @@
+
+/* ==========================================
+   03. DESIGN GRÁFICO — INÊS LIMA
+========================================== */
+
+.pagina-design {
+    margin: 0;
+    background-color: #ffffff;
+    color: #514a35;
+    font-family: 'Dmsans', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.pagina-design .navbar {
+    background-color: #514a35;
+    padding: 20px 6%;
+    border: none;
+}
+
+.pagina-design .navbar nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.pagina-design .navbar a {
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* TOPO */
+
+.design-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding: 45px 4% 35px;
+}
+
+/* NÚMERO 03 */
+
+.design-numero {
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: clamp(100px, 12vw, 200px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+    color: #000000;
+    margin: 0;
+}
+
+/* PRÓXIMO PROJETO */
+
+.design-topo .proximo-projeto {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 15px;
+
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #514a35;
+    text-decoration: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.design-topo .proximo-projeto span {
+    font-size: 32px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.design-topo .proximo-projeto:hover {
+    opacity: 0.65;
+}
+
+.design-topo .proximo-projeto:hover span {
+    transform: translateX(6px);
+}
+
+/* ==========================================
+   GALERIA DE IMAGENS
+========================================== */
+
+.design-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    padding: 0 4%;
+    align-items: start;
+}
+
+/* CADA PROJETO */
+
+.design-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}
+
+/* IMAGENS */
+
+.design-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* LEGENDAS */
+
+.design-item figcaption {
+    width: 100%;
+    margin-top: 12px;
+    padding: 0;
+
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+    color: #777777;
+}
+
+/* TÍTULO INFERIOR */
+
+.design-rodape {
+    padding: 90px 4% 110px;
+}
+
+.design-rodape h2 {
+    font-family: 'Dmsans', Arial, sans-serif;
+    font-size: clamp(35px, 4vw, 55px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+/* ==========================================
+   RESPONSIVO - TABLETS
+========================================== */
+
+@media (max-width: 900px) {
+
+    .design-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 20px;
+    }
+
+    .design-numero {
+        font-size: 110px;
+    }
+
+    .design-rodape {
+        padding: 65px 5% 80px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVO - TELEMÓVEIS
+========================================== */
+
+@media (max-width: 600px) {
+
+    .pagina-design .navbar {
+        padding: 18px 4%;
+    }
+
+    .pagina-design .navbar nav {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .pagina-design .navbar a {
+        font-size: 14px;
+    }
+
+    .design-topo {
+        padding: 30px 5% 25px;
+        gap: 12px;
+    }
+
+    .design-numero {
+        font-size: clamp(65px, 18vw, 90px);
+    }
+
+    .design-topo .proximo-projeto {
+        font-size: 15px;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .design-topo .proximo-projeto span {
+        font-size: 24px;
+    }
+
+    .design-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 12px;
+        padding: 0 5%;
+    }
+
+    .design-item figcaption {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .design-rodape {
+        padding: 55px 5% 75px;
+    }
+
+    .design-rodape h2 {
+        font-size: 35px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+.design-topo .proximo-projeto:focus-visible {
+    outline: 3px solid #d2e3fb;
+    outline-offset: 4px;
+}

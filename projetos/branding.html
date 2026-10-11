@@ -3,30 +3,243 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
+
     <title>Identidade e Branding | Inês Lima</title>
-    <link rel="stylesheet" href="../style.css">
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- CSS DA PÁGINA BRANDING -->
+    <link rel="stylesheet" href="/projetos/branding.css">
 </head>
-<body>
+
+<body class="pagina-branding">
+
+    <!-- =========================
+         MENU DE NAVEGAÇÃO
+    ========================== -->
 
     <header class="navbar">
         <nav>
-            <a href="../index.html">Início</a>
-            <a href="../index.html#projetos">Projetos</a>
-            <a href="../index.html#contactos">Contactos</a>
+            <a href="/index.html#sobre">
+                Sobre Mim
+            </a>
+
+            <a href="/index.html#projetos">
+                Projetos
+            </a>
+
+            <a href="/index.html#contactos">
+                Contactos
+            </a>
         </nav>
     </header>
 
+
+    <!-- =========================
+         PRÓXIMO PROJETO
+    ========================== -->
+
+    <div class="navegacao-projetos">
+
+        <a href="/projetos/editorial.html"
+           class="proximo-projeto">
+
+            Próximo projeto
+            <span aria-hidden="true">→</span>
+
+        </a>
+
+    </div>
+
+
     <main>
-        <section class="projetos">
-            <h2>Identidade e Branding</h2>
-            <p>
-                Explora os meus projetos de
-                identidade visual e branding.
-            </p>
+
+        <!-- =========================
+             PROJETO 01 - BRANDING
+        ========================== -->
+
+        <section class="branding-project">
+
+            <!-- LADO ESQUERDO -->
+            <div class="branding-info">
+
+                <h2 class="branding-number">
+                    01.
+                </h2>
+
+                <div class="branding-description">
+
+                    <h1>
+                        Identidade e Branding
+                    </h1>
+
+                    <p>
+                        Este projeto explora a criação
+                        de uma identidade visual,
+                        desde o desenvolvimento do
+                        conceito até à sua aplicação
+                        em diferentes suportes.
+
+                        Através da tipografia, cor
+                        e composição, procurei
+                        desenvolver uma linguagem
+                        visual coerente e criativa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LADO DIREITO - CARROSSEL -->
+            <div class="branding-carousel"
+                 tabindex="0"
+                 aria-label="Galeria de imagens do projeto">
+
+                <!-- IMAGEM 1 -->
+                <img
+                    class="branding-slide active"
+                    src="/imagens/tecido1.png"
+                    alt="Primeira imagem do projeto"
+                >
+
+                <!-- IMAGEM 2 -->
+                <img
+                    class="branding-slide"
+                    src="/imagens/caixa.png"
+                    alt="Segunda imagem do projeto"
+                    loading="lazy"
+                >
+
+                <!-- IMAGEM 3 -->
+                <img
+                    class="branding-slide"
+                    src="/imagens/"
+                    alt="Terceira imagem do projeto"
+                    loading="lazy"
+                >
+
+
+                <!-- SETA ESQUERDA -->
+                <button
+                    type="button"
+                    class="carousel-prev"
+                    aria-label="Imagem anterior">
+
+                    &#10094;
+
+                </button>
+
+
+                <!-- SETA DIREITA -->
+                <button
+                    type="button"
+                    class="carousel-next"
+                    aria-label="Imagem seguinte">
+
+                    &#10095;
+
+                </button>
+
+                <!-- CONTADOR -->
+                <div class="carousel-counter"
+                     aria-live="polite">
+                    01 / 03
+                </div>
+
+            </div>
+
         </section>
+
+
+        <!-- =========================
+             GALERIA DO PROJETO
+        ========================== -->
+
+        <section class="branding-gallery">
+
+            <div class="gallery-header">
+                <h2>Exploração Visual</h2>
+
+                <p>
+                    Aplicações da identidade visual
+                    em diferentes formatos e suportes.
+                </p>
+            </div>
+
+
+            <div class="gallery-grid">
+
+                <!-- SACO -->
+                <figure class="gallery-item">
+                    <img
+                        src="../imagens/branding/projeto1-bag.jpg"
+                        alt="Aplicação da identidade num saco"
+                        loading="lazy"
+                    >
+                    <figcaption>Saco</figcaption>
+                </figure>
+
+
+                <!-- AUTOCOLANTES -->
+                <figure class="gallery-item">
+                    <img
+                        src="../imagens/branding/projeto1-stickers.jpg"
+                        alt="Autocolantes do projeto"
+                        loading="lazy"
+                    >
+                    <figcaption>Autocolantes</figcaption>
+                </figure>
+
+
+                <!-- CARTAZ -->
+                <figure class="gallery-item">
+                    <img
+                        src="../imagens/branding/projeto1-cartaz.jpg"
+                        alt="Cartaz do projeto"
+                        loading="lazy"
+                    >
+                    <figcaption>Cartaz</figcaption>
+                </figure>
+
+
+                <!-- EDITORIAL -->
+                <figure class="gallery-item">
+                    <img
+                        src="../imagens/branding/projeto1-editorial.jpg"
+                        alt="Aplicação editorial do projeto"
+                        loading="lazy"
+                    >
+                    <figcaption>Editorial</figcaption>
+                </figure>
+
+
+                <!-- REDES SOCIAIS -->
+                <figure class="gallery-item">
+                    <img
+                        src="../imagens/branding/projeto1-social.jpg"
+                        alt="Aplicação da identidade nas redes sociais"
+                        loading="lazy"
+                    >
+                    <figcaption>Redes sociais</figcaption>
+                </figure>
+
+            </div>
+
+        </section>
+
     </main>
+
+
+    <!-- =========================
+         JAVASCRIPT DO CARROSSEL
+    ========================== -->
+
+    <script src="/projetos/branding.js"></script>
 
 </body>
 </html>
